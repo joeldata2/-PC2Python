@@ -176,3 +176,115 @@ cantidad_digitos = cont_digitos(numero, digito)
 print(f"Cantidad de veces {digito} en el número {numero}: {cantidad_digitos}")
 
 
+"""-----------------------------------------------Problema 6:
+Escriba un programa en Python para obtener la serie de Fibonacci entre 0 y 50.
+Nota: La secuencia de Fibonacci es la serie de números:
+0, 1, 1, 2, 3, 5, 8, 13, 21,. ...
+Cada número siguiente se obtiene sumando los dos números anteriores."""
+
+# Función para generar la serie de Fibonacci hasta 50
+def fibonacci(n):
+    # Primeros dos números de la serie
+    a, b = 0, 1
+    # Lista para almacenar los valores de la serie
+    serie_fibonacci = []
+
+    while a <= n:
+        serie_fibonacci.append(a)
+        a, b = b, a + b
+
+    return serie_fibonacci
+
+# Llamamos a la función y mostramos la serie de Fibonacci hasta el número 50
+n = 50
+serie = fibonacci(n)
+
+print(f"Serie de Fibonacci hasta {n}:")
+print(serie)
+
+"""--------------------------------------------------Problema 7:
+Escriba una función de Python que tome un número como parámetro y verifique que el número sea
+primo o no."""
+
+def es_primo(numero):
+    # 0 y 1 no son primos
+    if numero < 2:
+        return False
+    
+    # Verificamos si el número es divisible por algún número entre 2 y la raíz cuadrada del número
+    for i in range(2, int(numero**0.5) + 1):
+        if numero % i == 0:
+            return False
+
+    # Si no ha sido divisible por ningún número, es primo
+    return True
+
+# Solicitamos al usuario ingresar un número para verificar si es primo
+numero = int(input("Ingrese un número para verificar si es primo: "))
+
+# Llamamos a la función e imprimimos el resultado
+if es_primo(numero):
+    print(f"{numero} es un número primo.")
+else:
+    print(f"{numero} no es un número primo.")
+
+
+"""Problema 8:
+Escribe una función de Python para calcular el factorial de un número (un entero no negativo). La
+función acepta el número como argumento.""""
+
+
+
+def factorial(numero):
+    # El factorial de 0 es 1
+    if numero == 0:
+        return 1
+
+    # Inicializamos el resultado con 1
+    resultado = 1
+
+    # Multiplicamos todos los números desde 1 hasta el número ingresado
+    for i in range(1, numero + 1):
+        resultado *= i
+
+    return resultado
+
+# Ingresar un número para calcular su factorial
+numero_ingresado = int(input("Ingrese un número para calcular su factorial: "))
+
+# Llamamos a la función e imprimimos el resultado
+resultado_factorial = factorial(numero_ingresado)
+print(f"El factorial de {numero_ingresado} es {resultado_factorial}")
+
+
+"""Métodos de Cadenas:
+Problema 9:
+Al enviar mensajes de texto o twittear, no es raro acortar las palabras para ahorrar tiempo o espacio,
+por ejemplo, omitiendo las vocales.
+Implemente un programa que solicite al usuario una cadena de texto y luego retorne ese mismo
+texto pero con todas las vocales (A, E, I, O y U) omitidas, ya sea que se ingresen en mayúsculas o
+minúsculas.
+Ejemplo:
+-
+Input: Twitter
+Output: Twttr
+-
+Input: What's your name? Output: Wht's yr nm? """
+
+
+def omitir_vocales(palabra):
+    # Creamos una cadena nueva sin vocales
+    palabra_sin_vocales = ''.join(letra for letra in palabra if letra.lower() not in 'aeiou')
+
+    return palabra_sin_vocales
+
+# Solicitamos al usuario ingresar una cadena de texto
+texto = input("Ingrese una cadena de texto: ")
+
+# Llamamos a la función e imprimimos el resultado
+resultado = omitir_vocales(texto)
+print(f"Texto sin vocales: {resultado}")
+
+
+
+
